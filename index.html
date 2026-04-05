@@ -767,6 +767,177 @@ header h1 span.logo { font-size: 26px; }
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   .card-nav, .quiz-options, .match-grid, .builder-tiles { padding-bottom: env(safe-area-inset-bottom); }
 }
+
+/* Cyrillic learning screen */
+.home-card.cyrillic-card {
+  border-color: var(--accent);
+  background: rgba(232, 132, 92, 0.08);
+}
+.light .home-card.cyrillic-card {
+  background: rgba(212, 113, 74, 0.06);
+}
+
+.cyr-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px 4px;
+}
+.cyr-tab {
+  flex: 1;
+  padding: 10px 8px;
+  border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text2);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.light .cyr-tab { border-color: #ddd5cc; }
+.cyr-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.cyr-group-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 8px 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.cyr-group-tabs::-webkit-scrollbar { display: none; }
+.cyr-group-btn {
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: 16px;
+  border: 1.5px solid rgba(255,255,255,0.12);
+  background: transparent;
+  color: var(--text2);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.light .cyr-group-btn { border-color: #ddd5cc; }
+.cyr-group-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.cyr-letter-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 36px 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  margin: 16px 20px;
+}
+.cyr-letter-big {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.cyr-letter-sound {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.cyr-letter-like {
+  font-size: 15px;
+  color: var(--text2);
+  margin-bottom: 16px;
+}
+.cyr-letter-group {
+  display: inline-block;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.light .cyr-letter-group { background: rgba(0,0,0,0.04); }
+.cyr-letter-group.familiar { color: var(--success); border: 1px solid var(--success); background: rgba(126,203,161,0.08); }
+.cyr-letter-group.false-friends { color: var(--accent2); border: 1px solid var(--accent2); background: rgba(244,162,97,0.08); }
+.cyr-letter-group.new { color: #6bb8d4; border: 1px solid #6bb8d4; background: rgba(107,184,212,0.08); }
+
+.cyr-browse-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 0 20px 20px;
+}
+.cyr-counter {
+  font-size: 14px;
+  color: var(--text2);
+  font-weight: 600;
+  min-width: 60px;
+  text-align: center;
+}
+
+.cyr-quiz-container { padding: 20px; }
+.cyr-quiz-prompt {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+.cyr-quiz-letter {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.cyr-quiz-label {
+  font-size: 12px;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.cyr-match-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 12px 20px 20px;
+}
+.cyr-match-tile {
+  padding: 14px 10px;
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+  box-shadow: var(--shadow);
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.light .cyr-match-tile { border-color: #e0d8d0; }
+.cyr-match-tile:active { transform: scale(0.96); }
+.cyr-match-tile.selected { border-color: var(--accent); background: rgba(232, 132, 92, 0.15); }
+.cyr-match-tile.correct { border-color: var(--success); background: rgba(126, 203, 161, 0.18); color: var(--success); }
+.cyr-match-tile.wrong { border-color: var(--error); background: rgba(224, 112, 112, 0.18); color: var(--error); }
+.cyr-match-tile.matched { opacity: 0; transform: scale(0.7); pointer-events: none; transition: all 0.4s ease; }
+.cyr-match-tile .tile-type {
+  display: block;
+  font-size: 10px;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
 </style>
 </head>
 <body>
@@ -925,6 +1096,23 @@ header h1 span.logo { font-size: 26px; }
     <div class="score-item"><div class="score-num red" id="bl-wrong">0</div><div class="score-label">Wrong</div></div>
   </div>
   <div id="builder-content"></div>
+</div>
+
+<!-- CYRILLIC LEARNING SCREEN -->
+<div class="screen" id="cyrillic-screen">
+  <div class="screen-back">
+    <button class="back-btn" id="cyr-back-btn">&#8592; Back</button>
+    <div>
+      <div class="sb-title">Learn Cyrillic</div>
+      <div class="sb-detail">33 Russian letters</div>
+    </div>
+  </div>
+  <div class="cyr-tabs" id="cyr-tabs">
+    <button class="cyr-tab active" data-mode="browse">Browse</button>
+    <button class="cyr-tab" data-mode="quiz">Quiz</button>
+    <button class="cyr-tab" data-mode="match">Match</button>
+  </div>
+  <div id="cyr-content"></div>
 </div>
 
 <script>
@@ -1169,6 +1357,55 @@ const CAT_ICONS = {
 };
 
 // ============================================================
+// CYRILLIC ALPHABET DATA — 33 Russian letters
+// ============================================================
+const CYRILLIC = [
+  // Familiar — look and sound like English
+  { letter: "А а", sound: "ah", like: "a in 'father'", group: "familiar" },
+  { letter: "Е е", sound: "ye", like: "ye in 'yes'", group: "familiar" },
+  { letter: "К к", sound: "k", like: "k in 'kite'", group: "familiar" },
+  { letter: "М м", sound: "m", like: "m in 'map'", group: "familiar" },
+  { letter: "О о", sound: "o", like: "o in 'bore'", group: "familiar" },
+  { letter: "Т т", sound: "t", like: "t in 'top'", group: "familiar" },
+  // False friends — look like English but sound different
+  { letter: "В в", sound: "v", like: "v in 'van' (looks like B)", group: "false-friends" },
+  { letter: "Н н", sound: "n", like: "n in 'no' (looks like H)", group: "false-friends" },
+  { letter: "Р р", sound: "r", like: "r in 'run' (looks like P)", group: "false-friends" },
+  { letter: "С с", sound: "s", like: "s in 'sun' (looks like C)", group: "false-friends" },
+  { letter: "У у", sound: "oo", like: "oo in 'moon' (looks like Y)", group: "false-friends" },
+  { letter: "Х х", sound: "kh", like: "ch in 'loch' (looks like X)", group: "false-friends" },
+  // New letters — unique to Russian
+  { letter: "Б б", sound: "b", like: "b in 'bat'", group: "new" },
+  { letter: "Г г", sound: "g", like: "g in 'go'", group: "new" },
+  { letter: "Д д", sound: "d", like: "d in 'dog'", group: "new" },
+  { letter: "Ж ж", sound: "zh", like: "s in 'pleasure'", group: "new" },
+  { letter: "З з", sound: "z", like: "z in 'zoo'", group: "new" },
+  { letter: "И и", sound: "ee", like: "ee in 'meet'", group: "new" },
+  { letter: "Й й", sound: "y", like: "y in 'boy' (short ee)", group: "new" },
+  { letter: "Л л", sound: "l", like: "l in 'lamp'", group: "new" },
+  { letter: "П п", sound: "p", like: "p in 'pot'", group: "new" },
+  { letter: "Ф ф", sound: "f", like: "f in 'fun'", group: "new" },
+  { letter: "Ц ц", sound: "ts", like: "ts in 'cats'", group: "new" },
+  { letter: "Ч ч", sound: "ch", like: "ch in 'church'", group: "new" },
+  { letter: "Ш ш", sound: "sh", like: "sh in 'ship'", group: "new" },
+  { letter: "Щ щ", sound: "shch", like: "shch in 'fresh cheese'", group: "new" },
+  { letter: "Ъ ъ", sound: "—", like: "hard sign (silent separator)", group: "new" },
+  { letter: "Ы ы", sound: "y", like: "i in 'bit' (deeper)", group: "new" },
+  { letter: "Ь ь", sound: "—", like: "soft sign (softens previous letter)", group: "new" },
+  { letter: "Э э", sound: "eh", like: "e in 'met'", group: "new" },
+  { letter: "Ю ю", sound: "yu", like: "u in 'universe'", group: "new" },
+  { letter: "Я я", sound: "ya", like: "ya in 'yard'", group: "new" },
+  { letter: "Ё ё", sound: "yo", like: "yo in 'yonder'", group: "new" },
+];
+
+const CYR_GROUP_LABELS = {
+  "all": "All",
+  "familiar": "Familiar",
+  "false-friends": "False Friends",
+  "new": "New Letters"
+};
+
+// ============================================================
 // STATE
 // ============================================================
 let state = {
@@ -1358,6 +1595,13 @@ function renderHome() {
     <div class="hc-bar"><div class="hc-bar-fill" style="width:${allProg.pct}%"></div></div>
   </div>`;
 
+  // Learn Cyrillic card — special full-width
+  html += `<div class="home-card cyrillic-card full-width" data-special="cyrillic">
+    <div class="hc-icon" style="font-size:32px;font-weight:700;font-family:serif">Аа</div>
+    <div class="hc-name">Learn Cyrillic</div>
+    <div class="hc-progress">33 Russian letters &mdash; browse, quiz &amp; match</div>
+  </div>`;
+
   // Weak words card
   const weakWords = WORDS.filter(w => {
     const streak = (m[w.ru] && m[w.ru].streak) || 0;
@@ -1401,6 +1645,7 @@ function renderHome() {
   grid.querySelectorAll('.home-card[data-special]').forEach(card => {
     card.addEventListener('click', () => {
       if (card.dataset.special === 'weak') startWeakWordsQuiz();
+      if (card.dataset.special === 'cyrillic') openCyrillicScreen();
     });
   });
 }
@@ -1492,6 +1737,9 @@ function goBack() {
   if (['quiz', 'match', 'builder', 'flashcards', 'typing'].includes(screen)) {
     renderActivities();
     showScreen('activity-screen');
+  } else if (screen === 'cyrillic') {
+    renderHome();
+    showScreen('home-screen');
   } else {
     renderHome();
     showScreen('home-screen');
@@ -2213,6 +2461,392 @@ function initBuilder() {
   buildBuilderQueue();
   renderBuilder();
 }
+
+// ============================================================
+// CYRILLIC LEARNING
+// ============================================================
+let cyrState = {
+  mode: 'browse',
+  group: 'all',
+  browseIndex: 0,
+  // Quiz
+  qzType: 'letter-to-sound', // or 'sound-to-letter'
+  qzQueue: [],
+  qzCorrect: 0,
+  qzWrong: 0,
+  qzTotal: 0,
+  qzAnswered: false,
+  // Match
+  mtPool: [],
+  mtRound: [],
+  mtSelected: null,
+  mtMatched: 0,
+  mtMistakes: 0,
+  mtBusy: false
+};
+
+function getCyrFiltered() {
+  if (cyrState.group === 'all') return CYRILLIC;
+  return CYRILLIC.filter(c => c.group === cyrState.group);
+}
+
+function openCyrillicScreen() {
+  cyrState.mode = 'browse';
+  cyrState.browseIndex = 0;
+  cyrState.group = 'all';
+  showScreen('cyrillic-screen');
+  renderCyrTabs();
+  renderCyrContent();
+}
+
+$('cyr-back-btn').addEventListener('click', () => {
+  renderHome();
+  showScreen('home-screen');
+});
+
+function renderCyrTabs() {
+  $('cyr-tabs').querySelectorAll('.cyr-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.mode === cyrState.mode);
+    btn.onclick = () => {
+      cyrState.mode = btn.dataset.mode;
+      renderCyrTabs();
+      renderCyrContent();
+    };
+  });
+}
+
+function renderCyrContent() {
+  if (cyrState.mode === 'browse') renderCyrBrowse();
+  else if (cyrState.mode === 'quiz') renderCyrQuiz();
+  else if (cyrState.mode === 'match') renderCyrMatch();
+}
+
+// --- BROWSE ---
+function renderCyrBrowse() {
+  const content = $('cyr-content');
+  const filtered = getCyrFiltered();
+  if (!filtered.length) {
+    content.innerHTML = '<p style="text-align:center;color:var(--text2);padding:40px;">No letters in this group.</p>';
+    return;
+  }
+  const idx = cyrState.browseIndex % filtered.length;
+  const c = filtered[idx];
+  const upperLetter = c.letter.split(' ')[0];
+
+  content.innerHTML = `
+    <div class="cyr-group-tabs" id="cyr-group-tabs">
+      ${Object.entries(CYR_GROUP_LABELS).map(([key, label]) =>
+        `<button class="cyr-group-btn${cyrState.group === key ? ' active' : ''}" data-group="${key}">${label} ${key === 'all' ? '(33)' : '(' + CYRILLIC.filter(l => key === 'all' || l.group === key).length + ')'}</button>`
+      ).join('')}
+    </div>
+    <div class="cyr-letter-card">
+      <div class="cyr-letter-big">${c.letter}</div>
+      <div class="cyr-letter-sound">"${c.sound}"</div>
+      <div class="cyr-letter-like">${c.like}</div>
+      <div class="cyr-letter-group ${c.group}">${CYR_GROUP_LABELS[c.group] || c.group}</div>
+      <div style="margin-top:16px">
+        <button class="speak-btn" id="cyr-speak" aria-label="Listen" style="font-size:24px;padding:10px 14px">&#128264;</button>
+      </div>
+    </div>
+    <div class="cyr-browse-nav">
+      <button class="nav-btn" id="cyr-prev">&#8592; Prev</button>
+      <div class="cyr-counter">${idx + 1} / ${filtered.length}</div>
+      <button class="nav-btn primary" id="cyr-next">Next &#8594;</button>
+    </div>
+  `;
+
+  // Group tab clicks
+  content.querySelectorAll('.cyr-group-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      cyrState.group = btn.dataset.group;
+      cyrState.browseIndex = 0;
+      renderCyrBrowse();
+    });
+  });
+
+  // Nav
+  $('cyr-prev').addEventListener('click', () => {
+    const f = getCyrFiltered();
+    cyrState.browseIndex = (cyrState.browseIndex - 1 + f.length) % f.length;
+    renderCyrBrowse();
+  });
+  $('cyr-next').addEventListener('click', () => {
+    const f = getCyrFiltered();
+    cyrState.browseIndex = (cyrState.browseIndex + 1) % f.length;
+    renderCyrBrowse();
+  });
+
+  // TTS — speak the letter
+  $('cyr-speak').addEventListener('click', () => {
+    speak(upperLetter);
+  });
+
+  // Swipe support on letter card
+  const card = content.querySelector('.cyr-letter-card');
+  let startX = 0;
+  card.addEventListener('touchstart', e => { startX = e.changedTouches[0].screenX; }, { passive: true });
+  card.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].screenX - startX;
+    if (Math.abs(dx) > 60) {
+      if (dx < 0) $('cyr-next').click();
+      else $('cyr-prev').click();
+    }
+  });
+}
+
+// --- QUIZ ---
+function buildCyrQuizQueue() {
+  cyrState.qzQueue = shuffle(CYRILLIC.filter(c => c.sound !== '—').slice());
+}
+
+function renderCyrQuiz() {
+  const content = $('cyr-content');
+
+  if (!cyrState.qzQueue || !cyrState.qzQueue.length) {
+    cyrState.qzCorrect = 0;
+    cyrState.qzWrong = 0;
+    cyrState.qzTotal = 0;
+    cyrState.qzType = 'letter-to-sound';
+    buildCyrQuizQueue();
+  }
+
+  const card = cyrState.qzQueue[0];
+  cyrState.qzAnswered = false;
+
+  const isLetterToSound = cyrState.qzType === 'letter-to-sound';
+
+  // Build wrong options
+  const pool = CYRILLIC.filter(c => c !== card && c.sound !== '—');
+  const wrongs = shuffle(pool).slice(0, 3);
+
+  let options;
+  if (isLetterToSound) {
+    options = shuffle([
+      { text: `"${card.sound}" — ${card.like}`, correct: true },
+      ...wrongs.map(w => ({ text: `"${w.sound}" — ${w.like}`, correct: false }))
+    ]);
+  } else {
+    options = shuffle([
+      { text: card.letter, correct: true },
+      ...wrongs.map(w => ({ text: w.letter, correct: false }))
+    ]);
+  }
+
+  content.innerHTML = `
+    <div class="quiz-direction" style="padding:12px 20px 8px">
+      <button class="dir-btn${isLetterToSound ? ' active' : ''}" data-cqdir="letter-to-sound">Letter &#8594; Sound</button>
+      <button class="dir-btn${!isLetterToSound ? ' active' : ''}" data-cqdir="sound-to-letter">Sound &#8594; Letter</button>
+    </div>
+    <div class="quiz-score">
+      <div class="score-item"><div class="score-num green" id="cyr-qz-correct">${cyrState.qzCorrect}</div><div class="score-label">Correct</div></div>
+      <div class="score-item"><div class="score-num" id="cyr-qz-total">${cyrState.qzTotal}</div><div class="score-label">Total</div></div>
+      <div class="score-item"><div class="score-num red" id="cyr-qz-wrong">${cyrState.qzWrong}</div><div class="score-label">Wrong</div></div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="cyr-qz-progress" style="width:${Math.round((cyrState.qzTotal / CYRILLIC.filter(c=>c.sound!=='—').length)*100)}%"></div></div>
+    <div class="cyr-quiz-container">
+      <div class="cyr-quiz-prompt">
+        <div class="cyr-quiz-label">${isLetterToSound ? 'What sound does this letter make?' : 'Which letter makes this sound?'}</div>
+        ${isLetterToSound
+          ? `<div class="cyr-quiz-letter">${card.letter}</div>`
+          : `<div class="cyr-letter-sound" style="font-size:32px">"${card.sound}"</div><div style="color:var(--text2);font-size:14px">${card.like}</div>`
+        }
+      </div>
+      <div class="quiz-options">
+        ${options.map((o, i) => `<button class="quiz-option" data-idx="${i}"${!isLetterToSound ? ' style="font-size:22px;text-align:center"' : ''}>${o.text}</button>`).join('')}
+      </div>
+    </div>
+  `;
+
+  // Direction buttons
+  content.querySelectorAll('.dir-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      cyrState.qzType = btn.dataset.cqdir;
+      cyrState.qzQueue = [];
+      cyrState.qzCorrect = 0;
+      cyrState.qzWrong = 0;
+      cyrState.qzTotal = 0;
+      renderCyrQuiz();
+    });
+  });
+
+  // Option clicks
+  content.querySelectorAll('.quiz-option').forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      if (cyrState.qzAnswered) return;
+      cyrState.qzAnswered = true;
+      cyrState.qzTotal++;
+
+      content.querySelectorAll('.quiz-option').forEach(b => b.classList.add('disabled'));
+
+      if (options[i].correct) {
+        btn.classList.add('correct');
+        cyrState.qzCorrect++;
+      } else {
+        btn.classList.add('wrong');
+        content.querySelectorAll('.quiz-option').forEach((b, j) => {
+          if (options[j].correct) b.classList.add('correct');
+        });
+        cyrState.qzWrong++;
+      }
+
+      // Speak the letter
+      speak(card.letter.split(' ')[0]);
+
+      setTimeout(() => {
+        cyrState.qzQueue.shift();
+        if (!cyrState.qzQueue.length) buildCyrQuizQueue();
+        renderCyrQuiz();
+      }, 1200);
+    });
+  });
+}
+
+// --- MATCH ---
+function buildCyrMatchRound() {
+  if (!cyrState.mtPool.length) {
+    cyrState.mtPool = shuffle(CYRILLIC.filter(c => c.sound !== '—').slice());
+  }
+  const pairs = cyrState.mtPool.splice(0, 6);
+  if (!pairs.length) return;
+  cyrState.mtRound = pairs;
+  cyrState.mtSelected = null;
+  return pairs;
+}
+
+function renderCyrMatch() {
+  const content = $('cyr-content');
+
+  if (!cyrState.mtPool.length && !cyrState.mtRound.length) {
+    cyrState.mtMatched = 0;
+    cyrState.mtMistakes = 0;
+    cyrState.mtBusy = false;
+    cyrState.mtPool = shuffle(CYRILLIC.filter(c => c.sound !== '—').slice());
+  }
+
+  const pairs = buildCyrMatchRound();
+  if (!pairs || !pairs.length) {
+    content.innerHTML = '<div class="match-done" style="display:block"><p>All pairs matched! Starting over...</p></div>';
+    cyrState.mtPool = shuffle(CYRILLIC.filter(c => c.sound !== '—').slice());
+    setTimeout(() => renderCyrMatch(), 1500);
+    return;
+  }
+
+  // Create tiles: letters + sounds
+  const tiles = [];
+  pairs.forEach((c, i) => {
+    tiles.push({ type: 'letter', text: c.letter, pairId: i });
+    tiles.push({ type: 'sound', text: `"${c.sound}"`, pairId: i, letterText: c.letter.split(' ')[0] });
+  });
+  shuffle(tiles);
+
+  content.innerHTML = `
+    <div class="match-score">
+      <div class="score-item"><div class="score-num green" id="cyr-mt-matched">${cyrState.mtMatched}</div><div class="score-label">Matched</div></div>
+      <div class="score-item"><div class="score-num red" id="cyr-mt-mistakes">${cyrState.mtMistakes}</div><div class="score-label">Mistakes</div></div>
+    </div>
+    <div class="cyr-match-grid" id="cyr-match-grid">
+      ${tiles.map((t, i) => `<button class="cyr-match-tile" data-pair="${t.pairId}" data-type="${t.type}" data-idx="${i}">
+        <div>${t.type === 'letter' ? '<span class="tile-type">Letter</span>' : '<span class="tile-type">Sound</span>'}${t.text}</div>
+      </button>`).join('')}
+    </div>
+    <div class="match-done" id="cyr-match-done" style="display:none;">
+      <p>All pairs matched!</p>
+      <button class="nav-btn primary" id="cyr-match-next">Next Round &#8594;</button>
+    </div>
+  `;
+
+  // Tile clicks
+  const grid = content.querySelector('#cyr-match-grid');
+  grid.querySelectorAll('.cyr-match-tile').forEach(btn => {
+    btn.addEventListener('click', () => handleCyrMatchTap(btn, tiles[parseInt(btn.dataset.idx)]));
+  });
+
+  // Next round button
+  const nextBtn = content.querySelector('#cyr-match-next');
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => renderCyrMatch());
+  }
+}
+
+function handleCyrMatchTap(btn, tile) {
+  if (cyrState.mtBusy) return;
+  if (btn.classList.contains('matched') || btn.classList.contains('correct')) return;
+
+  if (cyrState.mtSelected && cyrState.mtSelected.btn === btn) {
+    btn.classList.remove('selected');
+    cyrState.mtSelected = null;
+    return;
+  }
+
+  if (!cyrState.mtSelected) {
+    btn.classList.add('selected');
+    cyrState.mtSelected = { btn, tile };
+    if (tile.letterText) speak(tile.letterText);
+    return;
+  }
+
+  const first = cyrState.mtSelected;
+  cyrState.mtBusy = true;
+
+  if (first.tile.type === tile.type) {
+    // Same type — switch selection
+    first.btn.classList.remove('selected');
+    btn.classList.add('selected');
+    cyrState.mtSelected = { btn, tile };
+    cyrState.mtBusy = false;
+    if (tile.letterText) speak(tile.letterText);
+    return;
+  }
+
+  // Different types — check match
+  if (first.tile.pairId === tile.pairId) {
+    // Correct
+    first.btn.classList.add('correct');
+    btn.classList.add('correct');
+    cyrState.mtMatched++;
+
+    const letterTile = tile.type === 'letter' ? tile : first.tile;
+    const letterEl = tile.type === 'letter' ? btn : first.btn;
+    speak(cyrState.mtRound[tile.pairId].letter.split(' ')[0]);
+
+    if ($('cyr-mt-matched')) $('cyr-mt-matched').textContent = cyrState.mtMatched;
+
+    setTimeout(() => {
+      first.btn.classList.add('matched');
+      btn.classList.add('matched');
+      cyrState.mtSelected = null;
+      cyrState.mtBusy = false;
+
+      // Check if round complete
+      const remaining = document.querySelectorAll('#cyr-match-grid .cyr-match-tile:not(.matched)');
+      if (remaining.length === 0) {
+        const done = document.querySelector('#cyr-match-done');
+        if (done) done.style.display = 'block';
+      }
+    }, 600);
+  } else {
+    // Wrong
+    first.btn.classList.add('wrong');
+    btn.classList.add('wrong');
+    cyrState.mtMistakes++;
+    if ($('cyr-mt-mistakes')) $('cyr-mt-mistakes').textContent = cyrState.mtMistakes;
+
+    setTimeout(() => {
+      first.btn.classList.remove('wrong', 'selected');
+      btn.classList.remove('wrong');
+      cyrState.mtSelected = null;
+      cyrState.mtBusy = false;
+    }, 700);
+  }
+}
+
+// Keyboard nav for cyrillic browse
+document.addEventListener('keydown', e => {
+  if (state.currentScreen === 'cyrillic' && cyrState.mode === 'browse') {
+    if (e.key === 'ArrowRight' && $('cyr-next')) $('cyr-next').click();
+    if (e.key === 'ArrowLeft' && $('cyr-prev')) $('cyr-prev').click();
+  }
+});
 
 // ============================================================
 // INIT
